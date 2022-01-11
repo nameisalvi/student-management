@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<h1>Mark</h1>
+<div class="text-right">
 <button class="btn btn-primary add" data-toggle="modal" data-target="#mark-modal">Add</button>
+</div>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -12,7 +16,7 @@
             <th scope="col">Term</th>
             <th scope="col">Total Marks</th>
             <th scope="col">Created On</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-right">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -26,7 +30,7 @@
             <td><?= Config::get('constants.TERM.'.$mark->term)?></td>
             <td>{{$mark->total_mark}}</td>
             <td>{{date("M d, Y h:i A", strtotime($mark->created_at))}}</td>
-            <td>
+            <td class="text-right">
                 <a href="mark/delete/{{$mark->id}}" class="btn btn-danger" data-id="{{$mark->id}}">Delete</a>
                 <a class="btn btn-warning edit" data-url="mark/edit/{{$mark->id}}" data-toggle="modal"
                     data-target="#mark-modal">Edit</a>

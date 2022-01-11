@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<h1>Students</h1>
+<div class="text-right">
 <button class="btn btn-primary add" data-toggle="modal" data-target="#student-modal">Add</button>
+</div>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -9,7 +13,7 @@
             <th scope="col">Age</th>
             <th scope="col">Gender</th>
             <th scope="col">Reporting Teacher</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-right">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +24,7 @@
             <td>{{$student->age}}</td>
             <td>{{$student->gender}}</td>
             <td><?= Config::get('constants.REPORTING_TEACHER.'.$student->reporting_teacher)?></td>
-            <td>
+            <td class="text-right">
                 <a href="student/delete/{{$student->id}}" class="btn btn-danger" data-id="{{$student->id}}">Delete</a>
                 <a class="btn btn-warning edit" data-url="student/edit/{{$student->id}}" data-toggle="modal"
                     data-target="#student-modal">Edit</a>
